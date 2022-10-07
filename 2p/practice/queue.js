@@ -1,28 +1,6 @@
-//
-// ES5
-// to complete
-//
 
-/** INSTRUCTIONS
- *
- * create one file by program
- * implement a method, function, non-function solution
- * solve each as requested
- * may use code from previous exercises
- *
- * PROBLEM 1
- * Queue implementation (array-based)
- *
- * add
- *    top
- * 
- * methods
- *    isFull()
- *    isEmpty()
- *
- */
-
-
+let c = 0 //DECLARO EL CONTADOR
+let n = 10 //QUE TANTOS NUMEROS QUIERE GENERAR
 
 function Queue() {
   this.dataStore = []
@@ -34,7 +12,7 @@ function Queue() {
       this.dataStore.push(element)
     } else {
       console.log("esta lleno")
-  }
+    }
   }
 
   this.dequeue = function() {
@@ -73,28 +51,38 @@ function Queue() {
       return false
     }
   }
-}
+
+  this.numrandom = function() {
+    1 + Math.floor(Math.random() * n //NUMERO RANDOM A BUSCAR
+                   }
+
+  //
+  // test program
+  //
+  let q = new Queue()
+  /*
+  q.enqueue("Meredith")
+  q.enqueue("Cynthia")
+  q.enqueue("Jennifer")
+  
+  q.enqueue("Pedro")
+  q.enqueue("Juan")
+  q.enqueue("Jennifer")
+  q.enqueue("Jenniferrr")
+  */
+
+  q.enqueue(q.numrandom())
+  q.enqueue(q.numrandom())
+  q.enqueue(q.numrandom())
+  q.enqueue(q.numrandom())
+  q.enqueue(q.numrandom())
+  q.enqueue(q.numrandom())
+  q.dequeue()
 
 
-//
-// test program
-//
-let q = new Queue()
-q.enqueue("Meredith")
-q.enqueue("Cynthia")
-q.enqueue("Jennifer")
+  console.log("Front of queue: " + q.front());
+  console.log("Back of queue: " + q.back());
 
-q.enqueue("Pedro")
-q.enqueue("Juan")
-q.enqueue("Jennifer")
-q.enqueue("Jenniferrr")
-console.log(q.full)
-console.log(q.dataStore)
-q.dequeue()
-
-console.log("Front of queue: " + q.front());
-console.log("Back of queue: " + q.back());
-
-q.dequeue()
-console.log(q.toString())
-console.log('done')
+  q.dequeue()
+  console.log(q.toString())
+  console.log('done')
