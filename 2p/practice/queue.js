@@ -1,4 +1,3 @@
-
 let c = 0 //DECLARO EL CONTADOR
 let n = 10 //QUE TANTOS NUMEROS QUIERE GENERAR
 
@@ -12,7 +11,7 @@ function Queue() {
       this.dataStore.push(element)
     } else {
       console.log("esta lleno")
-    }
+  }
   }
 
   this.dequeue = function() {
@@ -51,38 +50,33 @@ function Queue() {
       return false
     }
   }
+}
+//
+// test program
+//
 
-  this.numrandom = function() {
-    1 + Math.floor(Math.random() * n //NUMERO RANDOM A BUSCAR
-                   }
+let q = new Queue()
+//console.log(q.numrandom())
+q.enqueue( 1 + Math.floor(Math.random() * n))
+q.enqueue( 1 + Math.floor(Math.random() * n))
+q.enqueue( 1 + Math.floor(Math.random() * n))
+q.enqueue( 1 + Math.floor(Math.random() * n))
+q.enqueue( 1 + Math.floor(Math.random() * n))
+q.enqueue("Cynthia")
 
-  //
-  // test program
-  //
-  let q = new Queue()
-  /*
-  q.enqueue("Meredith")
-  q.enqueue("Cynthia")
-  q.enqueue("Jennifer")
-  
-  q.enqueue("Pedro")
-  q.enqueue("Juan")
-  q.enqueue("Jennifer")
-  q.enqueue("Jenniferrr")
-  */
+q.enqueue("Jennifer")
 
-  q.enqueue(q.numrandom())
-  q.enqueue(q.numrandom())
-  q.enqueue(q.numrandom())
-  q.enqueue(q.numrandom())
-  q.enqueue(q.numrandom())
-  q.enqueue(q.numrandom())
-  q.dequeue()
+q.enqueue("Pedro")
+q.enqueue("Juan")
+q.enqueue("Jennifer")
+q.enqueue("Jenniferrr")
+console.log(q.full)
+console.log(q.dataStore)
+q.dequeue()
 
+console.log("Front of queue: " + q.front());
+console.log("Back of queue: " + q.back());
 
-  console.log("Front of queue: " + q.front());
-  console.log("Back of queue: " + q.back());
-
-  q.dequeue()
-  console.log(q.toString())
-  console.log('done')
+q.dequeue()
+console.log(q.toString())
+console.log('done')
