@@ -1,6 +1,6 @@
 //
 // imports ES5
-// Node5es (data)
+// Node (Node4stu5es.js)
 //
 
 function Linked(n) {//node
@@ -24,7 +24,7 @@ function prepend(n){//new node
 }
 
 function append(n){//new node
-    n.next = null
+    n.next = null//
     this.tail.next=n
     this.tail=n
     this.size++
@@ -40,4 +40,8 @@ function traverse(){
     console.log('\n')
 }
 
+//
+// exercises
+//
 function contains(v){}
+function getTail(){}

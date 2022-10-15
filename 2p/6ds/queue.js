@@ -1,5 +1,6 @@
 let c = 0 //DECLARO EL CONTADOR
-let n = 10 //QUE TANTOS NUMEROS QUIERE GENERAR
+let total_nums= 10 //QUE TANTOS NUMEROS QUIERE GENERAR Y TAMAÑO DE LA COLA " CON PONER AQUI EL TAMAÑO DE LA COLA TODO SE ARREGLA 10,100,1000, N "
+let timer = 0 //Contador de tiempo
 
 function Queue() {
   this.dataStore = []
@@ -81,47 +82,71 @@ q.dequeue()
 console.log(q.toString())
 console.log('done')
 */
-function distribute(nums, queues, n, digit) { // digit represents either the 1s
-// or 10s place
+//
+// test program
+//
+//ORGANIZAR Y ORDENAR
+function distribute(nums, queues, n, digit,c) {  
 for (var i = 0; i < n; ++i) {
 if (digit == 1) {
-queues[nums[i]%10].enqueue(nums[i]);
+  c ++
+queues[nums[i]%total_nums].enqueue(nums[i]);
 }
 else {
-queues[Math.floor(nums[i] / 10)].enqueue(nums[i]);
+  c++
+queues[Math.floor(nums[i] / total_nums)].enqueue(nums[i]);
 }
 }
 }
-
+ 
+ // Recoge números de la cola
 function collect(queues, nums) {
-var i = 0;
-for (var digit = 0; digit < 10; ++digit) {
+    var i = 0;
+for (var digit = 0; digit < total_nums; ++digit) {
 while (!queues[digit].empty()) {
-  nums[i++] = queues[digit].dequeue();
+  c ++
+nums[i++] = queues[digit].dequeue();
 }
 }
 }
-
+ 
+ // muestra la matriz
+ 
 function dispArray(arr) {
-for (var i = 0; i < arr.length; ++i) {
-putstr(arr[i] + " ");
+  for(var i=0;i<total_nums; i++){
+    console.log(arr[i]+ '');
+  }
+  
 }
-}
-
+ 
 var queues = [];
-for (var i = 0; i < 10; ++i) {
-queues[i] = new Queue();
+for (var i = 0; i < total_nums; i++) {
+    queues[i] = new Queue();
 }
+ 
 var nums = [];
-for (var i = 0; i < 10; ++i) {
-nums[i] = Math.floor(Math.floor(Math.random() * 101));
+ // Genera 10 números aleatoriamente
+for (var i = 0; i < total_nums; i++) {
+    nums[i] = Math.floor(Math.random() * total_nums);
 }
 console.log("Before radix sort: ");
 dispArray(nums);
-distribute(nums, queues, 10, 1);
-collect(queues, nums);
-distribute(nums, queues, 10, 10);
-collect(queues, nums);
 
+//INICIO EL TIMER
+console.time(timer)
+//PRIMERO LO ORGANIZAMOS
+distribute(nums, queues, total_nums, 1,c);
+//DESPUES RECOGEMOS LOS NUMEROS
+collect(queues, nums,c);
+//AHORA SI QUE PASO BIEN LOSVOLVEMOS A ORGANIZAR POR SI ALGO PASO
+
+distribute(nums, queues, total_nums, total_nums,c);
+//LOS RECOGEMOS PARA FINALMENTE MOSTRARLOS YA COMO VAN
+collect(queues, nums,c);
+
+console.log("\nTiempo que tomo organizarlo")
+console.timeEnd(timer) //IMPRIMO EL TOTAL DEL TIEMPO
 console.log("\n\nAfter radix sort: ");
+
 dispArray(nums);
+console.log("Pasos para ordenarlos: "+c)

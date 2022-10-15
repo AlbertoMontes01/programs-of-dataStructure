@@ -1,6 +1,6 @@
 //
 // imports ES5
-// linked5es2do
+// linked (linked5es.js)
 //
 
 //first
@@ -8,7 +8,7 @@
 let n1=new Node('a')
 let n2=new Node('b')
 
-let l=new Linked(n1)
+let l=new Linked(n1)//new Node('a')
 l.traverse(l.getHead())
 
 l.prepend(n2)
