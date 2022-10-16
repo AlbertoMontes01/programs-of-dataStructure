@@ -1,5 +1,8 @@
+////////////////////////////////////////////////////////////////////////////////
+      /* PARA MODIFICAR LOS VALORES BASTA CON CAMBIAR EL VALOR DE total_nums */
+////////////////////////////////////////////////////////////////////////////////
 let c = 0 //DECLARO EL CONTADOR
-let total_nums= 10 //QUE TANTOS NUMEROS QUIERE GENERAR Y TAMAÑO DE LA COLA " CON PONER AQUI EL TAMAÑO DE LA COLA TODO SE ARREGLA 10,100,1000, N "
+let total_nums= 1000 //QUE TANTOS NUMEROS QUIERE GENERAR Y TAMAÑO DE LA COLA " CON PONER AQUI EL TAMAÑO DE LA COLA TODO SE ARREGLA 10,100,1000, N "
 let timer = 0 //Contador de tiempo
 
 function Queue() {
@@ -52,36 +55,6 @@ function Queue() {
     }
   }
 }
-/*
-//
-// test program
-//
-
-let q = new Queue()
-q.enqueue( 1 + Math.floor(Math.random() * n))
-q.enqueue( 1 + Math.floor(Math.random() * n))
-q.enqueue( 1 + Math.floor(Math.random() * n))
-q.enqueue( 1 + Math.floor(Math.random() * n))
-q.enqueue( 1 + Math.floor(Math.random() * n))
-q.enqueue("Cynthia")
-
-q.enqueue("Jennifer")
-
-q.enqueue("Pedro")
-q.enqueue("Juan")
-q.enqueue("Jennifer")
-q.enqueue("Jenniferrr")
-console.log(q.full)
-console.log(q.dataStore)
-q.dequeue()
-
-console.log("Front of queue: " + q.front());
-console.log("Back of queue: " + q.back());
-
-q.dequeue()
-console.log(q.toString())
-console.log('done')
-*/
 //
 // test program
 //
@@ -89,12 +62,12 @@ console.log('done')
 function distribute(nums, queues, n, digit,c) {  
 for (var i = 0; i < n; ++i) {
 if (digit == 1) {
-  c ++
 queues[nums[i]%total_nums].enqueue(nums[i]);
+  c ++
 }
 else {
-  c++
 queues[Math.floor(nums[i] / total_nums)].enqueue(nums[i]);
+  c++
 }
 }
 }
@@ -104,13 +77,14 @@ function collect(queues, nums) {
     var i = 0;
 for (var digit = 0; digit < total_nums; ++digit) {
 while (!queues[digit].empty()) {
-  c ++
+  
 nums[i++] = queues[digit].dequeue();
+  c ++
 }
 }
 }
  
- // muestra la matriz
+ // muestra la cola
  
 function dispArray(arr) {
   for(var i=0;i<total_nums; i++){
@@ -120,16 +94,18 @@ function dispArray(arr) {
 }
  
 var queues = [];
+
+//Funcion para generar las colas 
 for (var i = 0; i < total_nums; i++) {
     queues[i] = new Queue();
 }
  
 var nums = [];
- // Genera 10 números aleatoriamente
+ // Genera números aleatoriamente
 for (var i = 0; i < total_nums; i++) {
     nums[i] = Math.floor(Math.random() * total_nums);
 }
-console.log("Before radix sort: ");
+console.log("Antes de ordenar con radix sort: ");
 dispArray(nums);
 
 //INICIO EL TIMER
@@ -144,9 +120,9 @@ distribute(nums, queues, total_nums, total_nums,c);
 //LOS RECOGEMOS PARA FINALMENTE MOSTRARLOS YA COMO VAN
 collect(queues, nums,c);
 
-console.log("\nTiempo que tomo organizarlo")
+console.log("Tiempo que tomo organizarlo")
 console.timeEnd(timer) //IMPRIMO EL TOTAL DEL TIEMPO
-console.log("\n\nAfter radix sort: ");
+console.log("Después de ordenar con radix sort: ");
 
 dispArray(nums);
 console.log("Pasos para ordenarlos: "+c)

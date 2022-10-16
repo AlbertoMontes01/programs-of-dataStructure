@@ -29,3 +29,94 @@
  * @see {@link https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array}
  * @see {@link https://jsdoc.app}
  */
+//
+// imports ES5
+// Node (Node4stu5es.js)
+//
+function Node(data) {//constructor
+  this.data = data
+  this.next = null
+}
+
+function Linked(n) {//node
+  this.head = n//node
+  this.tail = n//node
+  this.size = 1
+
+  this.getHead = getHead
+  this.prepend = prepend
+  this.append = append
+  this.traverse = traverse
+  this.getTail = getTail
+  this.contains = contains
+}
+
+function getHead() { return this.head }
+
+function prepend(n) {//new node
+  n.next = this.head
+  this.head = n
+  this.size++
+}
+
+function append(n) {//new node
+  n.next = null//
+  this.tail.next = n
+  this.tail = n
+  this.size++
+}
+
+function traverse() {
+  let c = this.head
+  while (c) {//exists
+    //console.log(c.key)
+    console.log(c.data)
+    c = c.next
+  }
+  console.log('\n')
+}
+
+//
+// exercises
+//
+function contains(v) {
+  let n = this.head
+  while(n){
+    if(n.data === v){
+      console.log("true")
+      return true
+    }
+    n = n.next
+  }
+  console.log("false")
+  return false
+}
+function getTail() {
+  console.log(this.tail)
+  return this.tail
+}
+//first
+//let n1=new Node('a',new Node('f'))
+let n1 = new Node('a')
+let n2 = new Node('b')
+
+let l = new Linked(n1)//new Node('a')
+l.traverse(l.getHead())
+
+l.prepend(n2)
+l.traverse(l.getHead())
+
+//
+l.append(new Node('c'))
+l.traverse(l.getHead())
+
+//
+l.prepend(new Node('d'))
+l.append(new Node('di'))
+
+l.traverse(l.getHead())
+l.traverse(l.getTail())
+
+l.traverse(l.contains('z'))
+
+
