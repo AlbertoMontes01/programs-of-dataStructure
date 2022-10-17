@@ -81,8 +81,8 @@ function traverse() {
 //
 function contains(v) {
   let n = this.head
-  while(n){
-    if(n.data === v){
+  while (n) {
+    if (n.data === v) {
       return true
     }
     n = n.next
@@ -113,7 +113,7 @@ l.prepend(new Node('d'))
 l.append(new Node('di'))
 
 l.traverse(l.getHead())
-l.traverse(l.getTail())
+console.log(l.getTail())
 
 console.log(l.contains('z'))
 
