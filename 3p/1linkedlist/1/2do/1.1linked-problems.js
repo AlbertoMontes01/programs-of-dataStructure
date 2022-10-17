@@ -83,16 +83,14 @@ function contains(v) {
   let n = this.head
   while(n){
     if(n.data === v){
-      console.log("true")
       return true
     }
     n = n.next
   }
-  console.log("false")
   return false
 }
 function getTail() {
-  console.log(this.tail)
+  console.log("Tail: ", this.tail)
   return this.tail
 }
 //first
@@ -117,6 +115,6 @@ l.append(new Node('di'))
 l.traverse(l.getHead())
 l.traverse(l.getTail())
 
-l.traverse(l.contains('z'))
+console.log(l.contains('z'))
 
 
