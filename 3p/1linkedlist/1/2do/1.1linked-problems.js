@@ -53,12 +53,14 @@ function Linked(n) {//node
 
 function getHead() { return this.head }
 
+//Agrega un elemento al principo
 function prepend(n) {//new node
   n.next = this.head
   this.head = n
   this.size++
 }
 
+//Agrega un elemento al final
 function append(n) {//new node
   n.next = null//
   this.tail.next = n
@@ -116,5 +118,3 @@ l.traverse(l.getHead())
 console.log(l.getTail())
 
 console.log(l.contains('z'))
-
-
