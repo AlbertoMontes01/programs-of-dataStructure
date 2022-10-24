@@ -17,4 +17,3 @@ console.log(Q.pop())
 console.log(Q.pop())
 // vs
 // shift
-Footer

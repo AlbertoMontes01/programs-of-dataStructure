@@ -1,6 +1,5 @@
 //
 // create library
-// 
 //
 
 function Queue() {
@@ -13,6 +12,10 @@ function Queue() {
     this.empty = empty
 }
 
+
+function enqueue(element) {
+    this.dataStore.push(element)
+}
 
 function dequeue() {
     return this.dataStore.shift()
@@ -27,7 +30,7 @@ function back() {
 }
 
 function toString() {
-    let retStr = "";
+    let retStr = ""
     for (let i = 0; i < this.dataStore.length; ++i) {
 	retStr += this.dataStore[i] + "\n"
     }
@@ -57,8 +60,8 @@ q.enqueue("Jennifer")
 
 console.log(q.toString())
 
-console.log("Front of queue: " + q.front());
-console.log("Back of queue: " + q.back());
+console.log("Front of queue: " + q.front())
+console.log("Back of queue: " + q.back())
 
 q.dequeue()
 console.log(q.toString())
