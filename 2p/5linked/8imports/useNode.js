@@ -3,7 +3,7 @@
 // IMPORTO DE MI DOCUMENTO QUE ESTA DENTRO DE MI NOMBRE EN LA CARPETA LINKED EN EL DOCUMENTO NODE5ES.JS
 
 
-import { Node, Linked, traverse, getHead, prepend, append, contains, getTail, insertAfter, insertBefore } from '../../../advm/linked/node5es.js'
+import { Node, Linked } from '../../../advm/linked/node5es.js'
 
 ///////////////////////////////////////////////////// PRUEBA DE QUE FUNCIONA EL IMPORT //////////////////////////////////////////////////
 

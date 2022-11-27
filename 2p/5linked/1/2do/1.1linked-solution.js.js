@@ -83,13 +83,12 @@ function traverse() {
 //
 function contains(v) {
   let n = this.head
-  let f = 0
   while (n) {
     if (n.data === v) {
-      console.log(f.data)
+      console.log("lo que buscas es: " + n.data)
+      console.log("Existe? ")
       return true
     }
-    f = n
     n = n.next
   }
   return false
